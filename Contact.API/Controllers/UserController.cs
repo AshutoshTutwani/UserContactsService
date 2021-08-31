@@ -53,6 +53,7 @@ namespace Contact.API.Controllers
             {
                 return this.Ok();
             }
+            
             return this.BadRequest();
         }
 
