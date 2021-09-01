@@ -9,9 +9,9 @@ namespace Contact.Domain.Helper
 {
     public static class DomainHelper
     {
-        #region Fields and Constants
+        #region Properties
 
-        private const string JsonFileName = "userData.json";
+        public static string JsonFileName = "userData.json";
 
         public static string AssemblyDirectory
         {

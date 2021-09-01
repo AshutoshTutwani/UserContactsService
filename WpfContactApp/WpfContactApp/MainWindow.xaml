@@ -157,7 +157,8 @@
           <TextBox   Margin="6,6,6,6" Width="180" Grid.Row="2" Grid.Column="1" Text="{Binding SelectedUser.LastName}" />
 
           <TextBlock  Margin="6,6,6,6" VerticalAlignment="Center" Grid.Row="3" Grid.Column="0" Text="Date Of Birth:"/>
-          <DatePicker FontSize="15" Margin="6,6,6,6" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1" SelectedDate="{Binding SelectedUser.Date}"/>
+          <DatePicker FontSize="15" Margin="6,6,6,6" VerticalAlignment="Center" Grid.Row="3" Grid.Column="1"
+                      SelectedDate="{Binding SelectedUser.Date}"/>
 
           <TextBlock  Margin="6,6,6,6" VerticalAlignment="Center" Grid.Row="4" Grid.Column="0" Text="Emails:"/>
           <ComboBox FontSize="15" Margin="6,6,6,6" Grid.Row="4" Grid.Column="1" ItemsSource="{Binding SelectedUser.Emails,Mode=TwoWay,UpdateSourceTrigger=PropertyChanged}"  

@@ -9,6 +9,8 @@
 
 using System;
 using System.Collections.ObjectModel;
+using System.Globalization;
+using System.Runtime.CompilerServices;
 using Newtonsoft.Json;
 using Prism.Mvvm;
 
@@ -73,6 +75,8 @@ namespace WpfContactApp.Model
     /// </summary>
     private string _lastName;
 
+    private string _dateOfBirth;
+
     #endregion
 
     #region Properties
@@ -127,7 +131,7 @@ namespace WpfContactApp.Model
         this.RaisePropertyChanged();
         if (this._date.HasValue)
         {
-          this.DateOfBirth = this._date.Value.ToShortDateString();
+          this.DateOfBirth = this._date.Value.ToString("yyyy-MM-dd");
           this.RaisePropertyChanged(nameof(this.DateOfBirth));
         }
       }
@@ -137,7 +141,19 @@ namespace WpfContactApp.Model
     /// Gets or sets the date of birth.
     /// </summary>
     /// <value>The date of birth.</value>
-    public string DateOfBirth { get; set; }
+    public string DateOfBirth
+    {
+      get => _dateOfBirth;
+      set
+      {
+        _dateOfBirth = value;
+        if (!string.IsNullOrEmpty(value))
+        {
+          _date = DateTime.ParseExact(value, "yyyy-MM-dd", CultureInfo.InvariantCulture);
+          this.RaisePropertyChanged(nameof(this.Date));
+        }
+      }
+    }
 
     /// <summary>
     /// Gets or sets the emails.

@@ -15,7 +15,7 @@ namespace Contact.Domain.Models
         [Required]
         public string LastName { get; set; }
         public string DateOfBirth{ get; set; }
-        public List<string> Emails { get; set; }
-        public List<string> PhoneNumbers { get; set; }
+        public List<string> Emails { get; set; } = new List<string>();
+        public List<string> PhoneNumbers { get; set; } = new List<string>();
     }
 }

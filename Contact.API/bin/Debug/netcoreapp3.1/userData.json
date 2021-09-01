@@ -1,0 +1,14 @@
+[
+  {
+    "Id": 2,
+    "FirstName": "Seed",
+    "LastName": "User",
+    "DateOfBirth": "2021-09-10",
+    "Emails": [
+      "seed.user@gmail.com"
+    ],
+    "PhoneNumbers": [
+      "8368019466"
+    ]
+  }  
+]

@@ -117,6 +117,11 @@ namespace WpfContactApp.ViewModels
     /// </summary>
     private void AddMail()
     {
+      if (string.IsNullOrEmpty(this._userDetail.EditedEmail))
+      {
+        return;
+      }
+
       this._userDetail.Emails.Add(this._userDetail.EditedEmail);
       this._userDetail.SelectedEmail = this._userDetail.Emails.LastOrDefault();
     }
@@ -159,6 +164,11 @@ namespace WpfContactApp.ViewModels
     /// </summary>
     private void AddNumber()
     {
+      if (string.IsNullOrEmpty(this._userDetail.EditedNumber))
+      {
+        return;
+      }
+
       this._userDetail.PhoneNumbers.Add(this._userDetail.EditedNumber);
       this._userDetail.SelectedNumber = this._userDetail.PhoneNumbers.LastOrDefault();
     }

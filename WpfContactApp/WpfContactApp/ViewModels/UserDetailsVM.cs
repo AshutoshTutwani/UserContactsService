@@ -241,6 +241,11 @@ namespace WpfContactApp.ViewModels
 
       this.AllUsers = new ObservableCollection<UserDetail>(users);
       this.SelectedUser = this.AllUsers.FirstOrDefault();
+
+      if (this.SelectedUser == null) return;
+
+      this.SelectedUser.SelectedEmail = this.SelectedUser.Emails.FirstOrDefault();
+      this.SelectedUser.SelectedNumber = this.SelectedUser.PhoneNumbers.FirstOrDefault();
     }
 
     /// <summary>
@@ -285,6 +290,11 @@ namespace WpfContactApp.ViewModels
     /// </summary>
     private void UpdateMail()
     {
+      if (string.IsNullOrEmpty(this.SelectedUser.EditedEmail))
+      {
+        return;
+      }
+
       this.SelectedUser.Emails.Remove(this.SelectedUser.SelectedEmail);
       this.SelectedUser.Emails.Add(this.SelectedUser.EditedEmail);
       this.SelectedUser.SelectedEmail = this.SelectedUser.EditedEmail;
@@ -295,6 +305,11 @@ namespace WpfContactApp.ViewModels
     /// </summary>
     private void UpdateNumber()
     {
+      if (string.IsNullOrEmpty(this.SelectedUser.EditedNumber))
+      {
+        return;
+      }
+
       this.SelectedUser.PhoneNumbers.Remove(this.SelectedUser.SelectedNumber);
       this.SelectedUser.PhoneNumbers.Add(this.SelectedUser.EditedNumber);
       this.SelectedUser.SelectedNumber = this.SelectedUser.EditedNumber;
